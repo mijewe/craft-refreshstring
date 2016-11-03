@@ -31,7 +31,7 @@ class RefreshStringTwigExtension extends \Twig_Extension
 
 	public function getModDate($filename) {
 
-		return filemtime('.' . $filename);
+		return filemtime($filename);
 
 	}
 
