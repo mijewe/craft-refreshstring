@@ -21,8 +21,10 @@ class RefreshStringTwigExtension extends \Twig_Extension
 
 	public function refreshString($filename) {
 
-		if (file_exists($filename)) {
-			return $filename . '?' . $this->getModDate($filename);
+		$fullpath = getenv('CRAFTENV_BASE_PATH') . $filename;
+
+		if (file_exists($fullpath)) {
+			return $filename . '?' . $this->getModDate($fullpath);
 		} else {
 			return $filename;
 		}
